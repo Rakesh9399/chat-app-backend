@@ -9,7 +9,8 @@ export const uploadFile = async (req, res) => {
       });
     }
 
-    const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+    // const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+    const fileUrl =`https://${req.get("host")}/uploads/${req.file.filename}`;
 
     res.status(200).json({
       success: true,
