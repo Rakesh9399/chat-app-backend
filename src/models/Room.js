@@ -3,16 +3,31 @@ import mongoose from "mongoose";
 
 // Message Schema
 const messageSchema = new mongoose.Schema({
+
   sender: {
     type: String,
     required: true,
-    trim: true,
   },
 
   content: {
     type: String,
-    required: true,
-    trim: true,
+    default: "",
+  },
+
+  messageType: {
+    type: String,
+    enum: ["text", "image", "file"],
+    default: "text",
+  },
+
+  fileUrl: {
+    type: String,
+    default: "",
+  },
+
+  fileName: {
+    type: String,
+    default: "",
   },
 
   timeStamp: {
